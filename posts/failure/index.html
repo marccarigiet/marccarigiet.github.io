@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="A new Hugo site.">
+<title>
+    My NMT project – A case study in failure - Hi, im marc
+</title>
+
+
+<link rel="shortcut icon" href="/sam.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.c5514d3530979d291f3497facc20da1cec870028dbc2a3630b64bab8721bbe49.css" integrity="sha256-xVFNNTCXnSkfNJf6zCDaHOyHACjbwqNjC2S6uHIbvkk=" crossorigin="anonymous" media="screen">
+
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.carigiet.github.io/tn.png"/>
+
+<meta name="twitter:title" content="My NMT project – A case study in failure"/>
+<meta name="twitter:description" content="As some of you may know, my mother’s tongue is Romansh. One thing that has been bothering me and probably also many other Romansh speakers or generally anyone doing anything for which they want to provide a Romansh translation is the pure lack of automated Romansh translations. Of course, it does make sense that Romansh isn’t on the top of the list to implement for Google Translates or Deepln´s or frankly any provider of Neural Machine Translation."/>
+
+<meta property="og:title" content="My NMT project – A case study in failure" />
+<meta property="og:description" content="As some of you may know, my mother’s tongue is Romansh. One thing that has been bothering me and probably also many other Romansh speakers or generally anyone doing anything for which they want to provide a Romansh translation is the pure lack of automated Romansh translations. Of course, it does make sense that Romansh isn’t on the top of the list to implement for Google Translates or Deepln´s or frankly any provider of Neural Machine Translation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.carigiet.github.io/posts/failure/" /><meta property="og:image" content="https://www.carigiet.github.io/tn.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-08T13:57:24&#43;02:00" />
+<meta property="article:modified_time" content="2021-06-08T13:57:24&#43;02:00" /><meta property="og:site_name" content="Call me Sam" />
+
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        My NMT project – A case study in failure
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>My NMT project – A case study in failure</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Tue Jun 08, 2021 &#183; 893 words
+        <div class="tag-container">
+            
+            
+            <span class="tag">
+                <a href="/tags/blog/">
+                    blog
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/code/">
+                    code
+                </a>
+            </span>
+            
+            
+        </div>
+    </aside>
+    <hr />
+    <article role="article">
+        <p>As some of you may know, my mother’s tongue is Romansh. One thing that has been bothering me and probably also many other Romansh speakers or generally anyone doing anything for which they want to provide a Romansh translation is the pure lack of automated Romansh translations.
+Of course, it does make sense that Romansh isn’t on the top of the list to implement for Google Translates or Deepln´s or frankly any provider of Neural Machine Translation. And of course overly enthusiastic and self-overestimating me thought I should give it a shot, how hard could it be anyway? (foreshadowing)
+I decided on using the Open source Neural Machine Translation framework OpenNMT to try to get a very rudimental translation system going from German to Romansh. It was intended, to be a mere proof of concept, kind of similar to my “Maturaarbeit” in which I trained a text generation neural network with a mixed idiom Dataset. Of which the results were in practical terms completely unusable, yet interesting to say the least. I can promise you that the first of the two Statements also held up for this project.</p>
+
+<h1 id="roadblock-1-gathering-a-dataset" class="anchor-link"><a href="#roadblock-1-gathering-a-dataset">Roadblock 1: Gathering a Dataset.<span class="pilcrow">&nbsp;¶</span></a></h1>
+<p>Whilst finding, or if you are really masochistic collecting, a large enough Dataset for NMT is a hard enough task for bigger languages, it becomes a real nightmare with Romansh. A Minority language, spoken by less than 100k people (note this is an estimate, we don’t have good numbers on it) simply generates fewer data.  Now the good news was, that I found Corpora containing Pairs of translated sentences in Romansh and German, courtesy of opus.nlpl.eu. A good rule of thumb regarding Dataset size is that you´d want at least multiple hundreds of thousands of sentences for having any chance to get usable results from the whole ordeal. Meanwhile, I was able to collect a grand total of 50 thousand sentences. I probably could have gathered a few more thousand sentences, but I figured that it wouldn’t be worth the hassle and I could always come back to doing so after I had a proof of concept going.
+And here’s where the project really fell apart, I really shouldn’t have gone forward with the project with such a laughably small Dataset. But I really had no possibility of getting a large enough Dataset, as that simply doesn’t exist (yet).
+Now with gathered data, we set off to the task of setting up OpenNMT. A task that took me only a few hours in dependency hell, a process I won’t reiterate here, as I don’t want to think of such traumatizing memories. 
+Hooray, we can finally start training the Model.</p>
+
+<h1 id="roadblock-2-gpu-troubles" class="anchor-link"><a href="#roadblock-2-gpu-troubles">Roadblock 2: GPU troubles<span class="pilcrow">&nbsp;¶</span></a></h1>
+<p>Except we can´t train the Model. You see my Graphics card is an old GTX 970 and whilst this really doesn’t bother me whilst doing anything other, be it productivity or Gaming, it really is a hindrance with Machine learning Projects. As when I tried to initiate the learning process the GPU would run out of memory and the process would crash. Upgrading the GPU would be an option during normal times we are currently experiencing a massive Semiconductor shortage and thanks to that GPUs are nearly everywhere out of Stock and their prices have quite literally tripled.
+But hey there’s a way out. A tremendously painful and slow way out. No, I’m not talking about selling my kidney for an RTX 3080, I’m talking about the dreadful CPU training.
+Which in hindsight should have been the second time I dropped the project. See training a model once with the CPU is okay, but doing it over and over and over again to change parameters, to perhaps get better results, is mind-numbingly slow, and I quite honestly wouldn’t be bothered to do that process under these conditions. So anyway, with the now decimated time efficiency I let the model train for half a day until the model stopped improving anymore. After the whole ordeal was done, I went through the different checkpoints I saved and saw a nice improvement: With increasing learning time, the model started translating commonly used words correctly, which got me quite excited. So I skipped forward to the Checkpoint which had the smallest error and gave it a Romansh text from a newspaper to translate and when I saw the results I was dumbfounded:</p>
+<ul>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+<li>&ldquo;Herausgabe einer CD im Jahr 2000&rdquo;</li>
+</ul>
+<p>It translated every single sentence with the same Sentence. It won&rsquo;t surprise you that I dropped the project right there and then. I was not going o try again “Release of a CD in 2000” what does it mean? Is there any meaning behind it? I don’t know and I will never know. The only thing I do know is that this project was a total disaster and it was primarily caused by me going forward despite knowing damn well that I neither have the knowledge about Machine learning to endure on such a Project and me not having anything near enough data to do this.</p>
+<p>But hey, at least it was a fun learning process I guess. 
+Stay tuned for the next complete failure of a project I’m gonna post about here.</p>
+
+    </article>
+</div>
+
+
+        
+<nav role="navigation" class="flex-container bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/posts">posts</a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/aboutme">who is marc?</a>
+        
+    
+    
+    
+        &#183; 
+        <a href="/">
+            main
+        </a>
+    
+
+</p>
+</nav>
+
+    </main>
+    
+    <footer class="flex-container footer">a PUB (pretty useless Blog)
+</footer>
+    
+    
+</body>
+<p> </p>
+<br>
+  
+<div allign = 'center'>
+<webring-banner theme="dark">
+<p>Member of the <a href="https://xyquadrat.ch/polyring">Polyring</a> webring</p>
+</webring-banner>
+<script async src="https://xyquadrat.ch/polyring/embed.js" charset="utf-8"></script>
+</div>
+</html>

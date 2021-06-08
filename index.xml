@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hi, im marc</title>
+    <link>https://www.carigiet.github.io/</link>
+    <description>Recent content on Hi, im marc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Jun 2021 13:57:24 +0200</lastBuildDate><atom:link href="https://www.carigiet.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My NMT project – A case study in failure</title>
+      <link>https://www.carigiet.github.io/posts/failure/</link>
+      <pubDate>Tue, 08 Jun 2021 13:57:24 +0200</pubDate>
+      
+      <guid>https://www.carigiet.github.io/posts/failure/</guid>
+      <description>As some of you may know, my mother’s tongue is Romansh. One thing that has been bothering me and probably also many other Romansh speakers or generally anyone doing anything for which they want to provide a Romansh translation is the pure lack of automated Romansh translations. Of course, it does make sense that Romansh isn’t on the top of the list to implement for Google Translates or Deepln´s or frankly any provider of Neural Machine Translation.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://www.carigiet.github.io/aboutme/</link>
+      <pubDate>Mon, 07 Jun 2021 17:57:24 +0200</pubDate>
+      
+      <guid>https://www.carigiet.github.io/aboutme/</guid>
+      <description>My name is Marc Andriu Carigiet, you may know me as Drizzle or mawc the weird Musicbot (long story). Im from Grisons and study CS at ETH Zürich Im mainly going to document and vent about Projects im doing in my free time here. This site is still under construction.</description>
+    </item>
+    
+  </channel>
+</rss>
